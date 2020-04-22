@@ -1,0 +1,9 @@
+strictness: medium
+doc-warnings: false
+test-warnings: true
+autodetect: true
+member-warnings: false
+
+pylint:
+  options:
+    max-line-length: 79
