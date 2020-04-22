@@ -1,2 +1,2 @@
-sanic
-uvicorn
+Flask
+gunicorn
