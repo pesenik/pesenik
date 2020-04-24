@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 currentSong = """  Em       B7        G        D
@@ -67,5 +67,17 @@ Em    B7         G          D          Em B7 G D Em
 """
 
 @app.route('/')
-def hello_world():
-    return currentSong
+def index():
+    return render_template('guest.html', currentSong=currentSong)
+
+@app.route('/list')
+def admin_full_list():
+    return render_template('full_list.html')
+
+@app.route('/list/<author>')
+def admin_author_list():
+    return render_template('author_list.html')
+
+@app.route('/list/<author>/<song>')
+def admin_song():
+    return render_template('song.html')
