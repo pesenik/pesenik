@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ song.author }} - {{ song.title }}{% endblock %}
+
+{% block page %}
+<h1>
+    <a href="{{ url_for('admin_song_list', author_hash=song.authorHash) }}">{{ song.author }}</a>
+    - {{ song.title }}</h1>
+<pre>{{ song.text }}</pre>
+{% endblock %}

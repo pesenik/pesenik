@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Author list{% endblock %}
+
+{% block page %}
+<h1>Author list</h1>
+<ul>
+    {% for author in authors.values() %}
+        <li>
+            <a href="{{ url_for('admin_song_list', author_hash=author.nameHash) }}">
+                {{ author.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
