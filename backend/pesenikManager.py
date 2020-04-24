@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List, Optional
 
 
 @dataclass
@@ -8,6 +9,24 @@ class Song:
     authorHash: str
     text: str
     songTitleHash: str
+
+
+@dataclass
+class Author:
+    name: str
+    nameHash: str
+    songList: List[Song]
+
+    def getSong(self, songTitleHash: str) -> Optional[Song]:
+        pass
+
+
+class Pesennik:
+    authorList = List[Author]
+    currentSong: Song = None
+
+    def getAuthor(self, authorHash: str) -> Optional[Author]:
+        pass
 
 
 class PesenikManager:
