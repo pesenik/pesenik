@@ -1,13 +1,39 @@
+from collections import OrderedDict
 from dataclasses import dataclass
+from typing import OrderedDict as OrderedDictT
 
 
 @dataclass
 class Song:
     title: str
+    titleHash: str
+
     author: str
     authorHash: str
+
     text: str
-    songTitleHash: str
+
+
+@dataclass
+class Author:
+    name: str
+    nameHash: str
+    songs: OrderedDictT[str, Song]
+
+
+# example data
+# FIXME: remove this
+songA = Song(title='A', titleHash='a', author='B', authorHash='b', text='lala')
+authorB = Author(name='B', nameHash='b', songs=OrderedDict((('a', songA),)))
+
+
+class Pesenik:
+    authors: OrderedDictT[str, Author]
+    currentSong: Song = None
+
+    def __init__(self):
+        # FIXME: add usefull code
+        self.authors = OrderedDict((('b', authorB),))
 
 
 class PesenikManager:
