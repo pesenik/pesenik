@@ -1,73 +1,47 @@
+from collections import OrderedDict
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import OrderedDict as OrderedDictT
+import os
 
 
 @dataclass
 class Song:
     title: str
+    titleHash: str
+
     author: str
     authorHash: str
+
     text: str
-    songTitleHash: str
 
 
 @dataclass
 class Author:
     name: str
     nameHash: str
-    songList: List[Song]
-
-    def getSong(self, songTitleHash: str) -> Optional[Song]:
-        pass
+    songs: OrderedDictT[str, Song]
 
 
-class Pesennik:
-    authorList = List[Author]
+def authorHash(name:str):
+    return name[0:3]
+
+def titleHash(name:str):
+    return name[0:3]
+
+
+class Pesenik:
+    authors: OrderedDictT[str, Author]
     currentSong: Song = None
 
-    def getAuthor(self, authorHash: str) -> Optional[Author]:
-        pass
-
-
-class PesenikManager:
-    def authorsList(self):
-        return ["aaa", "aab"]
-
-    def songsList(self, author):
-        if author == "aaa":
-            return ["aaa000"]
-        elif author == "aab":
-            return ["aab000"]
-        return []
-
-    def getSong(self, author, song):
-        if author == "aaa":
-            return Song(
-                "Group1Song1",
-                "Group1",
-                author,
-                """"Group1Song1Text:
-                    А я ёжиков люблю""",
-                song,
-            )
-        elif author == "aab":
-            return Song(
-                "Group2Song1",
-                "Group2",
-                author,
-                """"Group2Song1Text:
-                    В каморке, что за актовым залом...""",
-                song,
-            )
-
-    def authorToHash(self, author):
-        return "aaa" if author == "Group1" else "aab"
-
-    def hashToAutor(self, authorHash):
-        return "Group1" if authorHash == "aaa" else "Group2"
-
-    def songTitleToHash(self, songTitle):
-        return "aaa000" if songTitle == "Group1Song1" else "aab000"
-
-    def hashToSongTitle(self, songTitleHash):
-        return "Group1Song1" if songTitleHash == "aaa" else "Group2Song1"
+    def __init__(self):
+        self.authors = OrderedDict()
+        for root, dirs, files in os.walk("../Songs"):
+            for dir in dirs:
+                authorObj = Author(name = dir, nameHash = authorHash(dir), songs = OrderedDict())
+                self.authors[a.nameHash] = authorObj
+            for file in files:
+                path = root.split(os.sep)
+                print (root + os.sep + file)
+                songFile = open(root + os.sep + file, "r")
+                self.authors[path[-1]].songs[titleHash(file)] = (Song(title = file, titleHash = titleHash(file), author = path[-1], authorHash= authorHash(dir), text = songFile.read()))
+        print (self.authors)
