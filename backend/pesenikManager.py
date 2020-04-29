@@ -35,11 +35,12 @@ class Pesenik:
 
     def __init__(self):
         self.authors = OrderedDict()
-        for root, dirs, files in os.walk("../Songs"):
-            for dir in dirs:
-                authorObj = Author(name = dir, nameHash = authorHash(dir), songs = OrderedDict())
-                self.authors[authorObj.nameHash] = authorObj
-            for file in files:
-                path = root.split(os.sep)
-                songFile = open(root + os.sep + file, "r")
-                self.authors[authorHash(path[-1])].songs[titleHash(file)] = (Song(title = file, titleHash = titleHash(file), author = path[-1], authorHash= authorHash(path[-1]), text = songFile.read()))
+        for root, dirs, files in os.walk(".."):
+            if "Songs" in root:
+                for dir in dirs:
+                    authorObj = Author(name = dir, nameHash = authorHash(dir), songs = OrderedDict())
+                    self.authors[authorObj.nameHash] = authorObj
+                for file in files:
+                    path = root.split(os.sep)
+                    songFile = open(root + os.sep + file, "r")
+                    self.authors[authorHash(path[-1])].songs[titleHash(file)] = (Song(title = file, titleHash = titleHash(file), author = path[-1], authorHash= authorHash(path[-1]), text = songFile.read()))
