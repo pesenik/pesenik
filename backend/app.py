@@ -2,11 +2,13 @@ from dataclasses import dataclass
 from typing import List
 
 from flask import Flask, abort, render_template
+from flask_socketio import SocketIO
 
 from .pesenikManager import Pesenik
 
 pesenik = Pesenik()
 app = Flask(__name__)
+sio = SocketIO(app)
 
 
 @app.route("/")
@@ -41,3 +43,7 @@ def admin_song(author_hash: str, title_hash: str):
     # TODO: send message to guests
 
     return render_template("admin/song.html", song=song)
+
+
+if __name__ == "__main__":
+    sio.run(app)
