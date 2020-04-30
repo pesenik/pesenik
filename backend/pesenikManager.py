@@ -1,7 +1,7 @@
+import os
 from collections import OrderedDict
 from dataclasses import dataclass
 from typing import OrderedDict as OrderedDictT
-import os
 
 
 @dataclass
@@ -22,10 +22,11 @@ class Author:
     songs: OrderedDictT[str, Song]
 
 
-def authorHash(name:str):
+def authorHash(name: str):
     return name[0:3]
 
-def titleHash(name:str):
+
+def titleHash(name: str):
     return name[0:3]
 
 
@@ -39,7 +40,9 @@ class Pesenik:
             if "Songs" in root:
                 path = root.split(os.sep)
                 for dir in dirs:
-                    authorObj = Author(name = dir, nameHash = authorHash(dir), songs = OrderedDict())
+                    authorObj = Author(
+                        name=dir, nameHash=authorHash(dir), songs=OrderedDict()
+                    )
                     self.authors[authorObj.nameHash] = authorObj
                 if "Songs" + os.sep in root:
                     for file in files:

@@ -10,4 +10,12 @@ current_song.author }} - {{ current_song.title }}{% endif %}{% endblock %}
     <h1>{{ current_song.author }} - {{ current_song.title }}</h1>
     <pre>{{ current_song.text }}</pre>
   {% endif %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js">
+  </script>
+  <script>
+    (function(){
+        socket = io()
+    })()
+  </script>
 {% endblock %}
