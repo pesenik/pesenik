@@ -40,10 +40,9 @@ def admin_song(author_hash: str, title_hash: str):
         abort(404)
 
     pesenik.currentSong = song
-    # TODO: send message to guests
+    sio.emit(
+        "change_song",
+        {"author": song.author, "title": song.title, "text": song.text},
+    )
 
     return render_template("admin/song.html", song=song)
-
-
-if __name__ == "__main__":
-    sio.run(app)

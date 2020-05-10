@@ -4,18 +4,27 @@
 current_song.author }} - {{ current_song.title }}{% endif %}{% endblock %}
 
 {% block page %}
-  {% if current_song is none %}
-    <h1>Waiting for admin</h1>
-  {% else %}
-    <h1>{{ current_song.author }} - {{ current_song.title }}</h1>
-    <pre>{{ current_song.text }}</pre>
-  {% endif %}
+
+  <h1 id="song__title">
+    {% if current_song is none %}
+      Waiting for admin
+    {% else %}
+      {{ current_song.author }} - {{ current_song.title }}
+    {% endif %}
+  </h1>
+  <pre id="song__text">{{ current_song.text }}</pre>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js">
   </script>
   <script>
     (function(){
         socket = io()
+        socket.on('change_song', function(msg) {
+            var title = msg.author + ' - ' + msg.title
+            document.getElementById('head__title').textContent = title
+            document.getElementById('song__title').textContent = title
+            document.getElementById('song__text').textContent = msg.text
+        })
     })()
   </script>
 {% endblock %}
