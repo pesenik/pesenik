@@ -1,6 +1,3 @@
-from dataclasses import dataclass
-from typing import List
-
 from flask import Flask, abort, render_template
 from flask_socketio import SocketIO
 

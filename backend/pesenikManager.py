@@ -47,6 +47,20 @@ class Pesenik:
                 if "Songs" + os.sep in root:
                     for file in files:
                         songFile = open(root + os.sep + file, "r")
-                        self.authors[authorHash(path[-1])].songs[titleHash(file)] = (Song(title = file, titleHash = titleHash(file), author = path[-1],     authorHash= authorHash(path[-1]), text = songFile.read()))
-                    self.authors[authorHash(path[-1])].songs = OrderedDict(sorted(self.authors[authorHash(path[-1])].songs.items()))
-        self.authors = OrderedDict(sorted(self.authors.items(), key = lambda www: www[1].name))
+                        self.authors[authorHash(path[-1])].songs[
+                            titleHash(file)
+                        ] = Song(
+                            title=file,
+                            titleHash=titleHash(file),
+                            author=path[-1],
+                            authorHash=authorHash(path[-1]),
+                            text=songFile.read(),
+                        )
+                    self.authors[authorHash(path[-1])].songs = OrderedDict(
+                        sorted(
+                            self.authors[authorHash(path[-1])].songs.items()
+                        )
+                    )
+        self.authors = OrderedDict(
+            sorted(self.authors.items(), key=lambda www: www[1].name)
+        )
