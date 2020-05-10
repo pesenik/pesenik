@@ -3,29 +3,29 @@
 {% block title %}Songs by {{ author.name }}{% endblock %}
 
 {% block page %}
-<h1>
+<h1 class="title">
     Songs by {{ author.name }}
 </h1>
-    <a href="{{ url_for('admin_author_list') }}">
-        <svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentcolor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="4">
-            <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
-        </svg>
-        To author list
-    </a>
-<ul>
+<a href="{{ url_for('admin_author_list') }}" class="author_list_link">
+    <svg
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="16"
+        height="16"
+        fill="none"
+        stroke="currentcolor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="4">
+        <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
+    </svg>
+    To author list
+</a>
+<ul class="list">
     {% for song in author.songs.values() %}
-        <li>
-            <a href="{{ url_for('admin_song', author_hash=song.authorHash, title_hash=song.titleHash) }}">
+        <li class="list__element">
+            <a class="list__link" href="{{ url_for('admin_song', author_hash=song.authorHash, title_hash=song.titleHash) }}">
                 {{ song.title }}
             </a>
         </li>

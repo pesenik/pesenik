@@ -3,11 +3,11 @@
 {% block title %}Author list{% endblock %}
 
 {% block page %}
-<h1>Author list</h1>
-<ul>
+<h1 class="title">Author list</h1>
+<ul class="list">
     {% for author in authors.values() %}
-        <li>
-            <a href="{{ url_for('admin_song_list', author_hash=author.nameHash) }}">
+        <li class="list__element">
+            <a class="list__link" href="{{ url_for('admin_song_list', author_hash=author.nameHash) }}">
                 {{ author.name }}
             </a>
         </li>

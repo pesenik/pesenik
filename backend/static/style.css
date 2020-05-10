@@ -20,6 +20,7 @@
 
     /* Meanings */
     --color-background-normal: var(--color-base03);
+    --color-background-highlights: var(--color-base02);
 
     --color-text-normal: var(--color-base0);
     --color-text-link: var(--color-blue);
@@ -37,6 +38,46 @@ a {
     color: var(--color-text-link);
 }
 
+/* List */
+.list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+.list__element {
+    display: block;
+    border: solid var(--color-background-highlights);
+    border-width: 1px 0 1px 0;
+    margin: 0 0 .25rem 0;
+}
+.list__link {
+    display: block;
+    padding: 1rem;
+}
+.list__link:hover {
+    background: var(--color-background-highlights);
+}
+
+/* Author list link */
+.author_list_link {
+    display: block;
+    border: solid var(--color-background-highlights);
+    border-width: 1px 0 1px 0;
+    padding: 1rem;
+}
+.author_list_link:hover {
+    background: var(--color-background-highlights);
+}
+
+/* Title */
+.title {
+    padding: 0 1rem;
+}
+
+/* Song */
+.song__text {
+    padding: 0 1rem;
+}
 
 /* Normalize */
 html {

@@ -3,8 +3,24 @@
 {% block title %}{{ song.author }} - {{ song.title }}{% endblock %}
 
 {% block page %}
-<h1>
+<h1 class="title">
     <a href="{{ url_for('admin_song_list', author_hash=song.authorHash) }}">{{ song.author }}</a>
     - {{ song.title }}</h1>
-<pre>{{ song.text }}</pre>
+<a href="{{ url_for('admin_author_list') }}" class="author_list_link">
+    <svg
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="16"
+        height="16"
+        fill="none"
+        stroke="currentcolor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="4">
+        <path d="M6 10 L16 2 26 10 M16 2 L16 30" />
+    </svg>
+    To author list
+</a>
+<pre class="song__text">{{ song.text }}</pre>
 {% endblock %}
