@@ -4,38 +4,92 @@
 #
 #    pip-compile --output-file=requirements.dev.txt requirements.dev.in
 #
-appdirs==1.4.3            # via black
-astroid==2.3.3            # via prospector, pylint, pylint-celery, pylint-flask, requirements-detector
-attrs==19.3.0             # via black
-black==19.10b0            # via -r requirements.dev.in
-click==7.1.1              # via black, pip-tools
-dodgy==0.2.1              # via prospector
-isort==4.3.21             # via -r requirements.dev.in, pylint
-lazy-object-proxy==1.4.3  # via astroid
-mccabe==0.6.1             # via prospector, pylint
-pathspec==0.8.0           # via black
-pathtools==0.1.2          # via watchdog
-pep8-naming==0.4.1        # via prospector
-pip-tools==5.0.0          # via -r requirements.dev.in
-prospector==1.2.0         # via -r requirements.dev.in
-pycodestyle==2.4.0        # via prospector
-pydocstyle==5.0.2         # via prospector
-pyflakes==2.1.1           # via prospector
-pylint-celery==0.3        # via prospector
-pylint-django==2.0.12     # via prospector
-pylint-flask==0.6         # via prospector
-pylint-plugin-utils==0.6  # via prospector, pylint-celery, pylint-django, pylint-flask
-pylint==2.4.4             # via prospector, pylint-celery, pylint-django, pylint-flask, pylint-plugin-utils
-pyyaml==5.3.1             # via prospector
-regex==2020.4.4           # via black
-requirements-detector==0.6  # via prospector
-setoptconf==0.2.0         # via prospector
-six==1.14.0               # via astroid, pip-tools
-snowballstemmer==2.0.0    # via pydocstyle
-toml==0.10.0              # via black
-typed-ast==1.4.1          # via black
-watchdog==0.10.2          # via -r requirements.dev.in
-wrapt==1.11.2             # via astroid
+appdirs==1.4.3
+    # via black
+astroid==2.3.3
+    # via
+    #   prospector
+    #   pylint
+    #   pylint-celery
+    #   pylint-flask
+    #   requirements-detector
+attrs==19.3.0
+    # via black
+black==19.10b0
+    # via -r requirements.dev.in
+click==7.1.1
+    # via
+    #   black
+    #   pip-tools
+dodgy==0.2.1
+    # via prospector
+isort==4.3.21
+    # via
+    #   -r requirements.dev.in
+    #   pylint
+lazy-object-proxy==1.4.3
+    # via astroid
+mccabe==0.6.1
+    # via
+    #   prospector
+    #   pylint
+pathspec==0.8.0
+    # via black
+pathtools==0.1.2
+    # via watchdog
+pep8-naming==0.4.1
+    # via prospector
+pip-tools==5.0.0
+    # via -r requirements.dev.in
+prospector==1.2.0
+    # via -r requirements.dev.in
+pycodestyle==2.4.0
+    # via prospector
+pydocstyle==5.0.2
+    # via prospector
+pyflakes==2.1.1
+    # via prospector
+pylint-celery==0.3
+    # via prospector
+pylint-django==2.0.12
+    # via prospector
+pylint-flask==0.6
+    # via prospector
+pylint-plugin-utils==0.6
+    # via
+    #   prospector
+    #   pylint-celery
+    #   pylint-django
+    #   pylint-flask
+pylint==2.4.4
+    # via
+    #   prospector
+    #   pylint-celery
+    #   pylint-django
+    #   pylint-flask
+    #   pylint-plugin-utils
+pyyaml==5.4
+    # via prospector
+regex==2020.4.4
+    # via black
+requirements-detector==0.6
+    # via prospector
+setoptconf==0.2.0
+    # via prospector
+six==1.14.0
+    # via
+    #   astroid
+    #   pip-tools
+snowballstemmer==2.0.0
+    # via pydocstyle
+toml==0.10.0
+    # via black
+typed-ast==1.4.1
+    # via black
+watchdog==0.10.2
+    # via -r requirements.dev.in
+wrapt==1.11.2
+    # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
